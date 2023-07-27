@@ -6,10 +6,11 @@ import (
 	"fmt"
 	"go-auth/session-based-auth/model"
 	"net/http"
+	"os"
 	"time"
 )
 
-var secretKey = []byte("secret")
+var secretKey = []byte(os.Getenv("SECRET_KEY"))
 var sessions = map[string]model.Session{}
 
 func GenerateSessionId(user model.User) string {
